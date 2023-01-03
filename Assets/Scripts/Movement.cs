@@ -32,15 +32,21 @@ public class Movement : MonoBehaviour
         float horSpeed = moveSpeed * Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(horSpeed, rb.velocity.y);
         anim.SetFloat("HorSpeed", Mathf.Abs(rb.velocity.x));
-        if(rb.velocity.x < 0f) sprite.flipX = true;
-        if(rb.velocity.x > 0f) sprite.flipX = false;
+        
+        if(rb.velocity.x < 0f) {
+            sprite.flipX = true;
+        }
+        
+        if(rb.velocity.x > 0f) { 
+            sprite.flipX = false;
+        }
     }
 
     private void jump() {
         if(Input.GetButtonDown("Jump") && isGrounded()) {
             rb.velocity = new Vector3(0, jumpForce, 0);
             jumpSoundEffect.Play();
-        }
+        }        
         anim.SetFloat("VerSpeed", rb.velocity.y);
     }
 
