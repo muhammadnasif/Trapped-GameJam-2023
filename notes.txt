@@ -1,0 +1,6 @@
+Syncing vscode:
+ edit -> preferences -> external tools
+ 1. select VSCode as external script editor
+ 2. tick "embedded packages", "local packages"
+ 3. Click Regenerate project files
+ 4. Reopen script in vscode
