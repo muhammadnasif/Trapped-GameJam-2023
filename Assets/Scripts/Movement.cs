@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    Rigidbody2D rb;
-    BoxCollider2D coll;
+    private Rigidbody2D rb;
+    private BoxCollider2D coll;
+    private Animator anim;
+    private SpriteRenderer sprite;
 
     [SerializeField] int jumpForce;
     [SerializeField] int moveSpeed;
@@ -18,6 +20,8 @@ public class Movement : MonoBehaviour
         moveSpeed = 7;
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     private void Update() {
@@ -26,14 +30,18 @@ public class Movement : MonoBehaviour
     }
 
     private void moveHorizontal() {
-        float dirX = moveSpeed * Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(dirX, rb.velocity.y);
+        float horSpeed = moveSpeed * Input.GetAxisRaw("Horizontal");
+        rb.velocity = new Vector2(horSpeed, rb.velocity.y);
+        anim.SetFloat("HorSpeed", Mathf.Abs(rb.velocity.x));
+        if(rb.velocity.x < 0f) sprite.flipX = true;
+        if(rb.velocity.x > 0f) sprite.flipX = false;
     }
 
     private void jump() {
         if(Input.GetButtonDown("Jump") && isGrounded()) {
             rb.velocity = new Vector3(0, jumpForce, 0);
         }
+        anim.SetFloat("VerSpeed", rb.velocity.y);
     }
 
     private bool isGrounded() {

@@ -4,3 +4,5 @@ Syncing vscode:
  2. tick "embedded packages", "local packages"
  3. Click Regenerate project files
  4. Reopen script in vscode
+
+Always avoid deleting files outside of unity
