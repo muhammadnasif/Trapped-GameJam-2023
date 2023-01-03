@@ -11,9 +11,8 @@ public class Movement : MonoBehaviour
 
     [SerializeField] int jumpForce;
     [SerializeField] int moveSpeed;
-
     [SerializeField] LayerMask jumpableGround;
-
+    [SerializeField] AudioSource jumpSoundEffect;
 
     void Start() {
         jumpForce = 12;
@@ -40,6 +39,7 @@ public class Movement : MonoBehaviour
     private void jump() {
         if(Input.GetButtonDown("Jump") && isGrounded()) {
             rb.velocity = new Vector3(0, jumpForce, 0);
+            jumpSoundEffect.Play();
         }
         anim.SetFloat("VerSpeed", rb.velocity.y);
     }
