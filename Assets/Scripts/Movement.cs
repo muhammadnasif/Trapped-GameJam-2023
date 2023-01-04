@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
     [SerializeField] int moveSpeed;
     [SerializeField] LayerMask jumpableGround;
     [SerializeField] AudioSource jumpSoundEffect;
+    [SerializeField] AudioSource landSoundEffect;
 
     void Start() {
         jumpForce = 12;
@@ -26,6 +27,12 @@ public class Movement : MonoBehaviour
     private void Update() {
         moveHorizontal();
         jump();
+    }
+
+    void OnCollisionEnter2D(Collision2D col) {
+        if(col.gameObject.name == "Terrain" && isGrounded()) {
+            landSoundEffect.Play();
+        }
     }
 
     private void moveHorizontal() {
@@ -47,7 +54,9 @@ public class Movement : MonoBehaviour
             rb.velocity = new Vector3(0, jumpForce, 0);
             jumpSoundEffect.Play();
         }        
-        anim.SetFloat("VerSpeed", rb.velocity.y);
+        anim.SetFloat("VerSpeed", Mathf.Abs(rb.velocity.y));
+        if(rb.velocity.y > 0f)  anim.SetBool("VerDir", true);
+        else                    anim.SetBool("VerDir", false);
     }
 
     private bool isGrounded() {

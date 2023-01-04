@@ -5,47 +5,40 @@ using UnityEngine;
 public class LadderMovement : MonoBehaviour
 {
     private bool isLadder;
-    private bool isClimbing;
     private float verSpeed;
     private float initialGravityScale;
 
-    [SerializeField] float speed;
+    [SerializeField] float moveSpeed;
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] Animator anim;
 
     
     void Start() {
         isLadder = false;
-        isClimbing = false;
-        speed = 7;
+        moveSpeed = 7;
         initialGravityScale = rb.gravityScale;
     }
 
     void Update() {
-        verSpeed = Input.GetAxisRaw("Vertical");
-        
-        if(isLadder && Mathf.Abs(verSpeed) > 0.01f) {
-            isClimbing = true;
-        }
-    }
-
-    private void FixedUpdate() {
-        if(!isClimbing) {
+        if(!isLadder) {
             rb.gravityScale = initialGravityScale;
             return;
         }
 
-        rb.gravityScale = 0f;
-        rb.velocity = new Vector2(rb.velocity.x, verSpeed*speed);
+        rb.gravityScale = 0f;                       // turn off gravity
+        verSpeed = Input.GetAxisRaw("Vertical");    // get keypress
+        rb.velocity = new Vector2(rb.velocity.x, verSpeed*moveSpeed); // add velocity
     }
 
     void OnTriggerEnter2D(Collider2D coll) {
         if(!coll.CompareTag("Ladder")) return;
         isLadder = true;
+        anim.SetBool("IsLadder", true);
     }
 
     void OnTriggerExit2D(Collider2D coll) {
         if(!coll.CompareTag("Ladder")) return;
         isLadder = false;
-        isClimbing = false;
+        anim.SetBool("IsLadder", false);
     }
 }
