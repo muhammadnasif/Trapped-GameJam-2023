@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
     [SerializeField] FoxyDeath deathScript;
 
     void Start() {
-        jumpForce = 12;
+        jumpForce = 15;
         moveSpeed = 7;
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
