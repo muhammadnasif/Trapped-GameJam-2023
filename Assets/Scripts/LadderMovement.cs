@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LadderMovement : MonoBehaviour
 {
-    private bool isLadder;
+    public bool isLadder;
     private float verSpeed;
     private float initialGravityScale;
 
