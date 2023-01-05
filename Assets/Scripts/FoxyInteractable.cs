@@ -1,20 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FoxyInteractable : MonoBehaviour
 {
     GameObject curItem;
+    public Canvas InteractableText;
 
     void Start()
     {
         curItem = null;
+        InteractableText.enabled = false;
     }
 
     void Update()
     {
         if(Input.GetKeyDown("f") && curItem != null) {
             print("Consume or Hold?");
+            InteractableText.enabled = true;
+            Time.timeScale = 0;
+        }
+
+
+        else if(Time.timeScale == 0 ){
+            if(Input.GetKeyDown(KeyCode.Escape)){
+                Time.timeScale = 1;
+                InteractableText.enabled = false;
+            }
         }
     }
 
@@ -27,5 +40,19 @@ public class FoxyInteractable : MonoBehaviour
         if(!col.gameObject.CompareTag("Interactable")) return;
         print("Interactable");
         curItem = col.gameObject;
+    }
+
+    public void Consume(){
+        print("Consume");
+        Time.timeScale = 1;
+        InteractableText.enabled = false;
+        Destroy(curItem);
+
+    }
+    public void Hold(){
+        print("Hold");
+        Time.timeScale = 1;
+        InteractableText.enabled = false;
+        Destroy(curItem);
     }
 }
