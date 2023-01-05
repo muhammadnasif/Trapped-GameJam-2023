@@ -9,16 +9,16 @@ public class Movement : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sprite;
 
-    [SerializeField] int jumpForce;
-    [SerializeField] int moveSpeed;
+    public float jumpForce;
+    public float moveSpeed;
     [SerializeField] LayerMask jumpableGround;
     [SerializeField] AudioSource jumpSoundEffect;
     [SerializeField] AudioSource landSoundEffect;
     [SerializeField] FoxyDeath deathScript;
 
     void Start() {
-        jumpForce = 12;
-        moveSpeed = 7;
+        // jumpForce = 12;
+        // moveSpeed = 7;
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
