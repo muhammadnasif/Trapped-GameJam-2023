@@ -18,6 +18,12 @@ public class FoxyDeath : MonoBehaviour
         isDead = false;
     }
 
+    void OnTriggerEnter2D(Collider2D col) {
+        if(col.gameObject.CompareTag("Trap")) {
+            Die();
+        }
+    }
+
     public void Die() {
         if(isDead) return;
 
