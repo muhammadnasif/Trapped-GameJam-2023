@@ -6946,6 +6946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3ab4877cba71d49bb63aebd4ba2c70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractableText: {fileID: 657562585}
 --- !u!114 &1008618471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6960,7 +6961,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 1008618462}
   ladderScript: {fileID: 1008618466}
-  InteractableText: {fileID: 657562585}
 --- !u!1 &1237378066
 GameObject:
   m_ObjectHideFlags: 0
