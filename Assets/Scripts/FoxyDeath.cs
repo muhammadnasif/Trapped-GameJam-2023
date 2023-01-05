@@ -8,8 +8,9 @@ public class FoxyDeath : MonoBehaviour
     [SerializeField] Animator anim;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] BoxCollider2D bc;
+    [SerializeField] AudioSource deathSound;
     
-    bool isDead;
+    public bool isDead;
     float deathJumpForce;
 
     void Start() {
@@ -24,6 +25,7 @@ public class FoxyDeath : MonoBehaviour
         rb.velocity = new Vector2(0, deathJumpForce);
         bc.enabled = false;
         anim.SetBool("IsHurt", true);
+        deathSound.Play();
     }
 
     void OnBecameInvisible() {

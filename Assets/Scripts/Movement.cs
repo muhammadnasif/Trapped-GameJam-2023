@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     [SerializeField] LayerMask jumpableGround;
     [SerializeField] AudioSource jumpSoundEffect;
     [SerializeField] AudioSource landSoundEffect;
+    [SerializeField] FoxyDeath deathScript;
 
     void Start() {
         jumpForce = 12;
@@ -25,6 +26,8 @@ public class Movement : MonoBehaviour
     }
 
     private void Update() {
+        if(deathScript.isDead) return;
+        
         moveHorizontal();
         jump();
     }
