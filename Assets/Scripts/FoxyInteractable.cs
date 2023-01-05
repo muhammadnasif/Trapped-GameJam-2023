@@ -25,6 +25,7 @@ public class FoxyInteractable : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col) {
         if(!col.gameObject.CompareTag("Interactable")) return;
+        print("Interactable");
         curItem = col.gameObject;
     }
 }
