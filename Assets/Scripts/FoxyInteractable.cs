@@ -6,19 +6,23 @@ using TMPro;
 public class FoxyInteractable : MonoBehaviour
 {
     GameObject curItem;
-    public Canvas InteractableText;
+    public Canvas InteractableText = null;
 
     void Start()
     {
         curItem = null;
-        InteractableText.enabled = false;
+        if(InteractableText != null){
+            InteractableText.enabled = false;
+        }
     }
 
     void Update()
     {
         if(Input.GetKeyDown("f") && curItem != null) {
             print("Consume or Hold?");
-            InteractableText.enabled = true;
+            if(InteractableText != null){
+                InteractableText.enabled = true;
+            }
             Time.timeScale = 0;
         }
 
@@ -26,7 +30,9 @@ public class FoxyInteractable : MonoBehaviour
         else if(Time.timeScale == 0 ){
             if(Input.GetKeyDown(KeyCode.Escape)){
                 Time.timeScale = 1;
-                InteractableText.enabled = false;
+                if(InteractableText != null){
+                    InteractableText.enabled = false;
+                }
             }
         }
     }
@@ -45,14 +51,18 @@ public class FoxyInteractable : MonoBehaviour
     public void Consume(){
         print("Consume");
         Time.timeScale = 1;
-        InteractableText.enabled = false;
+        if(InteractableText != null){
+            InteractableText.enabled = false;
+        }
         Destroy(curItem);
 
     }
     public void Hold(){
         print("Hold");
         Time.timeScale = 1;
-        InteractableText.enabled = false;
+        if(InteractableText != null){
+            InteractableText.enabled = false;
+        }
         Destroy(curItem);
     }
 }
