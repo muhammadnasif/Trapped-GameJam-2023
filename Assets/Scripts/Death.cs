@@ -13,7 +13,7 @@ public class Death : MonoBehaviour
     }
 
     public void kill() {
-        // deathSoundEffect.Play();
+        deathSoundEffect.Play();
         anim.SetBool("isDead", true);
     }
 
