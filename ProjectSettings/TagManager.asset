@@ -54,3 +54,6 @@ TagManager:
   - name: Terrain
     uniqueID: 2130947205
     locked: 0
+  - name: Hiding
+    uniqueID: 669598483
+    locked: 0
