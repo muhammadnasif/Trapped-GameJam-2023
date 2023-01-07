@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
+
 
 public class FoxyDeath : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class FoxyDeath : MonoBehaviour
     
     public bool isDead;
     float deathJumpForce;
-
+    public CinemachineVirtualCamera vcam;
     void Start() {
         deathJumpForce = 14;
         isDead = false;
@@ -20,6 +22,15 @@ public class FoxyDeath : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col) {
         if(col.gameObject.CompareTag("Enemy") || col.gameObject.CompareTag("Trap")) {
+            Die();
+        }
+        else if(col.gameObject.CompareTag("Kill Trigger")){
+            // cimeachine camera stops following player
+            // player dies
+
+            if (vcam != null) {
+                vcam.Follow = null;
+            }
             Die();
         }
     }
