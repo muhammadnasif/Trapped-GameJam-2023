@@ -35,6 +35,8 @@ public class FoxyDeath : MonoBehaviour
     }
 
     void OnBecameInvisible() {
+        if(!isDead) return;
+        
         SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex );
     }
 }
