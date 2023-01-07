@@ -34,6 +34,18 @@ public class FoxyAttack : MonoBehaviour
         attackSoundEffect.Play();
     }
 
+    private void breakStuff(GameObject breakableItem) {
+        if(breakableItem == null) return;
+
+        // destroy the sprite of the breakable item
+        DestroyImmediate(breakableItem.GetComponent<SpriteRenderer>());
+        // get the particle system which is a child of the breakable item
+        // and play it
+        breakableItem.GetComponentInChildren<ParticleSystem>().Play();
+        // wait till the animation is over, then destroy the object
+        Destroy(breakableItem, 1.0f);
+    }
+
     private void retrieveClaw() {
         claw.SetActive(false);
     }
@@ -42,5 +54,14 @@ public class FoxyAttack : MonoBehaviour
         if(col.gameObject.CompareTag("Enemy")) {
             col.gameObject.GetComponent<Death>().kill();
         }
+
+        if(col.gameObject.CompareTag("Breakable")) {
+            print("Breakable");
+            breakStuff(col.gameObject);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col) {
+        
     }
 }
