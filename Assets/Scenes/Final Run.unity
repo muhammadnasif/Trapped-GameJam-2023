@@ -48635,6 +48635,11 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!1 &812036301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4659893303921194101, guid: 135c6439a7f517242bc50b5b1e54028f, type: 3}
+  m_PrefabInstance: {fileID: 1147087620}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &876256650
 GameObject:
   m_ObjectHideFlags: 0
@@ -72181,6 +72186,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4659893303921194102, guid: 135c6439a7f517242bc50b5b1e54028f, type: 3}
   m_PrefabInstance: {fileID: 1147087620}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1273156354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812036301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7f6084b84c59c94295388144399f221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textField: {fileID: 1465058933}
 --- !u!1 &1320311367
 GameObject:
   m_ObjectHideFlags: 0

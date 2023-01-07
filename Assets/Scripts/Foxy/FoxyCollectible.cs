@@ -19,13 +19,27 @@ public class FoxyCollectible : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col) {
-        if(!col.gameObject.CompareTag("Collectible")) return;
-        collectItem(col.gameObject);
+        if(col.gameObject.CompareTag("Collectible")) {
+            collectItem(col.gameObject);
+        }
+    }
+
+    public bool hasItem(string itemName) {
+        return items.Contains(itemName);
     }
 
     public void collectItem(GameObject item) {
         items.Add(item.name);
         Destroy(item);
+    }
+
+    public int getSkullCount() {
+        int count = 0;
+        for(int i = 0; i < items.Count; i++) 
+            if(items[i].Contains("Skull"))
+                count++;
+        
+        return count;
     }
 
     public void showItems() {
