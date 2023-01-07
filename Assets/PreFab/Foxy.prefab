@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 617250466638466250}
   - component: {fileID: 617250466638466249}
   - component: {fileID: 617250466638466255}
-  - component: {fileID: 617250466638466251}
+  - component: {fileID: 6983896886396126512}
   - component: {fileID: 617250466638466290}
   - component: {fileID: 617250466638466291}
   - component: {fileID: 617250466638466252}
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23305c42cf5834842bb3e623146ac47f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 0
+  jumpForce: 15
   moveSpeed: 7
   jumpableGround:
     serializedVersion: 2
@@ -222,7 +222,7 @@ MonoBehaviour:
   bc: {fileID: 617250466638466288}
   deathSound: {fileID: 617250466638466248}
   isDead: 0
---- !u!114 &617250466638466251
+--- !u!114 &6983896886396126512
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -236,7 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 617250466638466290}
   ladderScript: {fileID: 617250466638466254}
-  attackSoundEffect: {fileID: 0}
+  attackSoundEffect: {fileID: 5916554620192261290}
 --- !u!95 &617250466638466290
 Animator:
   serializedVersion: 5
@@ -555,7 +555,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: edd59bd0ef5e528429592d4044bb7e30, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

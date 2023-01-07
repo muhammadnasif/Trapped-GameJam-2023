@@ -19,13 +19,7 @@ public class FoxyDeath : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D col) {
-        if(col.gameObject.CompareTag("Enemy")) {
-            Die();
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D col) {
-        if(col.gameObject.CompareTag("Trap")) {
+        if(col.gameObject.CompareTag("Enemy") || col.gameObject.CompareTag("Trap")) {
             Die();
         }
     }
