@@ -16,6 +16,7 @@ public class Movement : MonoBehaviour
     [SerializeField] LayerMask jumpableGround;
     [SerializeField] AudioSource jumpSoundEffect;
     [SerializeField] AudioSource landSoundEffect;
+    [SerializeField] AudioSource walkSoundEffect;
     [SerializeField] FoxyDeath deathScript;
 
     void Start() {
@@ -53,6 +54,13 @@ public class Movement : MonoBehaviour
         // trying to go right but facing left        
         if(rb.velocity.x > 0f && !facingRight) { 
             flipHorizontal();
+        }
+
+        if(Mathf.Abs(rb.velocity.x) > 0.01 && isGrounded()) {
+            if(!walkSoundEffect.isPlaying) walkSoundEffect.Play();
+        }
+        else {
+            walkSoundEffect.Stop();
         }
     }
 
