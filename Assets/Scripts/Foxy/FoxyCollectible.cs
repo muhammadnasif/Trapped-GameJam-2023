@@ -30,6 +30,8 @@ public class FoxyCollectible : MonoBehaviour
 
     public void collectItem(GameObject item) {
         items.Add(item.name);
+        if(item.name == "Key") GlobalScript.hasKey = true;
+        if(item.name == "Moon") GlobalScript.hasMoon = true;
         Destroy(item);
     }
 
@@ -48,5 +50,8 @@ public class FoxyCollectible : MonoBehaviour
             message += items[i] + ", ";
         }
         print(message);
+    
+        if(GlobalScript.hasKey) print("You have key");
+        if(GlobalScript.hasMoon) print("You have moon");
     }
 }
