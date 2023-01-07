@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheckCollectibles : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class CheckCollectibles : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
         if(col.gameObject.name == "Foxy with claw") {
             if(collectibleScript.getSkullCount() == skullsCount) {
-                print("proceed to next level");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1)               ;
             }
             else {
                 print("not enough skulls");
