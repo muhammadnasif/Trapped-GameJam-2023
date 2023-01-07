@@ -7,15 +7,15 @@ public class FoxyAttack : MonoBehaviour
     [SerializeField] Animator anim;
     [SerializeField] LadderMovement ladderScript;
     [SerializeField] AudioSource attackSoundEffect;
+    [SerializeField] AudioSource breakSoundEffect;
 
     private List<GameObject> inAttackRange = new List<GameObject>();
-    private GameObject claw;
-
+    private BoxCollider2D claw;
     private bool isClawActive = false;
 
     void Start() {
-        claw = transform.Find("Claw").gameObject;
-        claw.SetActive(false);
+        claw = transform.Find("Claw").gameObject.GetComponent<BoxCollider2D>();
+        claw.enabled = false;
     }
 
     void Update() {
@@ -32,18 +32,21 @@ public class FoxyAttack : MonoBehaviour
 
     private void activateClaw() {
         isClawActive = true;
-        claw.SetActive(true);
+        claw.enabled = true;
         anim.SetTrigger("Attack");
         attackSoundEffect.Play();
     }
 
     private void retrieveClaw() {
         isClawActive = false;
-        claw.SetActive(false);
+        claw.enabled = false;
     }
 
     private void breakStuff(GameObject breakableItem) {
         if(breakableItem == null) return;
+
+        // play break sound effect
+        breakSoundEffect.Play();
 
         // destroy the sprite of the breakable item
         DestroyImmediate(breakableItem.GetComponent<SpriteRenderer>());
