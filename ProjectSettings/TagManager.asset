@@ -9,6 +9,7 @@ TagManager:
   - Collectible
   - Interactable
   - Enemy
+  - Breakable
   layers:
   - Default
   - TransparentFX
