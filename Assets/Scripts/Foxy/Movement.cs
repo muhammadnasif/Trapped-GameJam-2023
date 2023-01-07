@@ -9,6 +9,8 @@ public class Movement : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sprite;
 
+    private bool facingRight = true;
+
     public float jumpForce;
     public float moveSpeed;
     [SerializeField] LayerMask jumpableGround;
@@ -43,13 +45,22 @@ public class Movement : MonoBehaviour
         rb.velocity = new Vector2(horSpeed, rb.velocity.y);
         anim.SetFloat("HorSpeed", Mathf.Abs(rb.velocity.x));
         
-        if(rb.velocity.x < 0f) {
-            sprite.flipX = true;
+        // trying to go left but facing right
+        if(rb.velocity.x < 0f && facingRight) {
+            flipHorizontal();
         }
-        
-        if(rb.velocity.x > 0f) { 
-            sprite.flipX = false;
+
+        // trying to go right but facing left        
+        if(rb.velocity.x > 0f && !facingRight) { 
+            flipHorizontal();
         }
+    }
+
+    private void flipHorizontal() {
+        Vector3 newScale = rb.transform.localScale;
+        newScale.x *= -1;
+        rb.transform.localScale = newScale;
+        facingRight = !facingRight;
     }
 
     private void jump() {

@@ -8,6 +8,8 @@ TagManager:
   - Trap
   - Collectible
   - Interactable
+  - Enemy
+  - Breakable
   layers:
   - Default
   - TransparentFX
