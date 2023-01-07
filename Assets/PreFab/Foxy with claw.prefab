@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 4659893303921194056}
   - component: {fileID: 4659893303921194062}
   - component: {fileID: 2940964310954196401}
+  - component: {fileID: 4281304477192279528}
   - component: {fileID: 4659893303921194099}
   - component: {fileID: 4659893303921194098}
   - component: {fileID: 4659893303921194061}
@@ -296,6 +297,19 @@ MonoBehaviour:
   anim: {fileID: 4659893303921194099}
   ladderScript: {fileID: 4659893303921194063}
   attackSoundEffect: {fileID: 1882642453918268459}
+--- !u!114 &4281304477192279528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4659893303921194101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7f6084b84c59c94295388144399f221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textField: {fileID: 0}
 --- !u!95 &4659893303921194099
 Animator:
   serializedVersion: 5
