@@ -10,6 +10,8 @@ TagManager:
   - Interactable
   - Enemy
   - Breakable
+  - Breakable Trigger
+  - Kill Trigger
   layers:
   - Default
   - TransparentFX
