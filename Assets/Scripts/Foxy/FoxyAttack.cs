@@ -16,6 +16,7 @@ public class FoxyAttack : MonoBehaviour
     void Start() {
         claw = transform.Find("Claw").gameObject;
         claw.SetActive(false);
+        claw.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     void Update() {
@@ -33,6 +34,7 @@ public class FoxyAttack : MonoBehaviour
     private void activateClaw() {
         isClawActive = true;
         claw.SetActive(true);
+        claw.GetComponent<BoxCollider2D>().enabled = true;
         anim.SetTrigger("Attack");
         attackSoundEffect.Play();
     }
@@ -40,6 +42,7 @@ public class FoxyAttack : MonoBehaviour
     private void retrieveClaw() {
         isClawActive = false;
         claw.SetActive(false);
+        claw.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     private void breakStuff(GameObject breakableItem) {
