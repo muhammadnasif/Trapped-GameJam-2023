@@ -11,6 +11,8 @@ public class FoxyAttack : MonoBehaviour
     private List<GameObject> inAttackRange = new List<GameObject>();
     private GameObject claw;
 
+    private bool isClawActive = false;
+
     void Start() {
         claw = transform.Find("Claw").gameObject;
         claw.SetActive(false);
@@ -29,9 +31,15 @@ public class FoxyAttack : MonoBehaviour
     }
 
     private void activateClaw() {
+        isClawActive = true;
         claw.SetActive(true);
         anim.SetTrigger("Attack");
         attackSoundEffect.Play();
+    }
+
+    private void retrieveClaw() {
+        isClawActive = false;
+        claw.SetActive(false);
     }
 
     private void breakStuff(GameObject breakableItem) {
@@ -46,16 +54,12 @@ public class FoxyAttack : MonoBehaviour
         Destroy(breakableItem, 1.0f);
     }
 
-    private void retrieveClaw() {
-        claw.SetActive(false);
-    }
-
     void OnTriggerEnter2D(Collider2D col) {
-        if(col.gameObject.CompareTag("Enemy")) {
+        if(col.gameObject.CompareTag("Enemy") && isClawActive) {
             col.gameObject.GetComponent<Death>().kill();
         }
 
-        if(col.gameObject.CompareTag("Breakable")) {
+        if(col.gameObject.CompareTag("Breakable") && isClawActive) {
             print("Breakable");
             breakStuff(col.gameObject);
         }
