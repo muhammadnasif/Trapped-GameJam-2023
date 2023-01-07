@@ -13,11 +13,9 @@ public class WaypointFollower : MonoBehaviour
     [SerializeField] GameObject[] waypoints;
     
     private int curWaypointIndex = 0;
-    private Rigidbody2D rb;
 
     void Update() {
         move();
-        rb = GetComponent<Rigidbody2D>();
     }
 
     void move() {
@@ -43,8 +41,8 @@ public class WaypointFollower : MonoBehaviour
 
     
     private void flipHorizontal() {
-        Vector3 newScale = rb.transform.localScale;
+        Vector3 newScale = transform.localScale;
         newScale.x *= -1;
-        rb.transform.localScale = newScale;
+        transform.localScale = newScale;
     }
 }

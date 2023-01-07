@@ -106,7 +106,7 @@ PrefabInstance:
     - target: {fileID: 4953083716459734731, guid: d8b7f6c4b59230047b5d62f5532dd132, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8184674003335209565}
     - target: {fileID: 4953083716459734731, guid: d8b7f6c4b59230047b5d62f5532dd132, type: 3}
       propertyPath: waypoints.Array.data[1]
       value: 

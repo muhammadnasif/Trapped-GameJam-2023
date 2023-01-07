@@ -4,20 +4,14 @@ using UnityEngine;
 
 public class Death : MonoBehaviour
 {
-    [SerializeField] AudioSource deathSoundEffect;
-    [SerializeField] AnimationClip deathAnimation;
-    private Animator anim;
+    public GameObject onDeath;
 
     void Start() {
-        anim = GetComponent<Animator>();
+    
     }
 
     public void kill() {
-        deathSoundEffect.Play();
-        anim.SetBool("isDead", true);
-    }
-
-    public void destroyObject() {
+        Instantiate(onDeath, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
