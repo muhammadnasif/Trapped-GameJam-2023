@@ -36,6 +36,11 @@ public class FoxyDeath : MonoBehaviour
                 vcam.Follow = null;
             }
             FinalDeath();
+            StartCoroutine(WaitAndLoadMenu(5.0f));
+            GlobalScript.hasKey = false;
+            GlobalScript.hasMoon = false;
+            GlobalScript.messageIndex = 0;
+            SceneManager.LoadScene(0);
         }
     }
 
@@ -45,6 +50,10 @@ public class FoxyDeath : MonoBehaviour
         rb.velocity = new Vector2(0, deathJumpForce);
         bc.enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    IEnumerator WaitAndLoadMenu(float waitTime) {
+        yield return new WaitForSeconds(waitTime);
     }
 
     public void Die() {
