@@ -19,29 +19,29 @@ public class FoxyInteractable : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown("f") && curItem != null) {
+        if(curItem != null) {
             
             if(curItem.name == "Door" && GlobalScript.hasKey) {
                 SceneManager.LoadScene("Level 5");
                 return;
             }
             
-            print("Consume or Hold?");
-            if(InteractableText != null){
-                InteractableText.enabled = true;
-            }
-            Time.timeScale = 0;
+            // print("Consume or Hold?");
+            // if(InteractableText != null){
+            //     InteractableText.enabled = true;
+            // }
+            // Time.timeScale = 0;
         }
 
 
-        else if(Time.timeScale == 0 ){
-            if(Input.GetKeyDown(KeyCode.Escape)){
-                Time.timeScale = 1;
-                if(InteractableText != null){
-                    InteractableText.enabled = false;
-                }
-            }
-        }
+        // else if(Time.timeScale == 0 ){
+        //     if(Input.GetKeyDown(KeyCode.Escape)){
+        //         Time.timeScale = 1;
+        //         if(InteractableText != null){
+        //             InteractableText.enabled = false;
+        //         }
+        //     }
+        // }
     }
 
     void OnTriggerExit2D(Collider2D col) {

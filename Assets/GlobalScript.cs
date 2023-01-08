@@ -6,4 +6,5 @@ public class GlobalScript : MonoBehaviour
 {
     public static bool hasKey = false;
     public static bool hasMoon = false;
+    public static int messageIndex = 0;
 }
