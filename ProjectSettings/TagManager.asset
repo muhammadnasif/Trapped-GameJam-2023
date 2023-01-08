@@ -12,6 +12,7 @@ TagManager:
   - Breakable
   - Breakable Trigger
   - Kill Trigger
+  - Tutorial Trigger
   layers:
   - Default
   - TransparentFX
