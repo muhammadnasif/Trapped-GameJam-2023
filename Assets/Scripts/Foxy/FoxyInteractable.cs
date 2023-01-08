@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
+using System.IO;
+using System.Text;
 
 public class FoxyInteractable : MonoBehaviour
 {
