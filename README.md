@@ -15,9 +15,6 @@ Trapped was made with love for IEEE, CS, BUET on the theme "It's Not Supposed To
 5. Open Unity Engine.
 6. You can run different scenes under the "Scenes" folder.
 
-## Installation Guide
-Incoming
-
 ## Asset Credits
 We have used [Unity Asset Store's](https://assetstore.unity.com/) free assets. 
 These assets include:
