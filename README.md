@@ -7,6 +7,9 @@ Trapped was made with love for IEEE, CS, BUET on the theme "It's Not Supposed To
 1. Download [this folder](https://drive.google.com/drive/folders/1PVd9RP5h8G5xoSPTFtv3UCPFjDfVo95C?usp=sharing)
 2. Open **Trapped.exe**
 
+## Video Description
+Check out [this short video](https://www.youtube.com/watch?v=nMsQUqEQzQI) describing our game
+
 ## How to Run In Unity Engine
 1. Download Unity Hub and Unity Engine.
 2. Create a 2D core Unity Project.
