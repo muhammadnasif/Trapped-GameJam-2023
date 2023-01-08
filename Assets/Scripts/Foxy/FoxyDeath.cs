@@ -11,7 +11,11 @@ public class FoxyDeath : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] BoxCollider2D bc;
     [SerializeField] AudioSource deathSound;
-    
+
+    // Final Death
+    [SerializeField] AudioSource finalDeathSound;
+    [SerializeField] GameObject skullPrefab;
+
     public bool isDead;
     float deathJumpForce;
     public CinemachineVirtualCamera vcam;
@@ -31,8 +35,16 @@ public class FoxyDeath : MonoBehaviour
             if (vcam != null) {
                 vcam.Follow = null;
             }
-            Die();
+            FinalDeath();
         }
+    }
+
+    public void FinalDeath() {
+        finalDeathSound.Play();
+        Instantiate(skullPrefab, transform.position,  Quaternion.identity);
+        rb.velocity = new Vector2(0, deathJumpForce);
+        bc.enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 
     public void Die() {

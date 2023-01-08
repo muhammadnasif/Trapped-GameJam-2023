@@ -40,6 +40,4 @@ public class LastStageScripts : MonoBehaviour
             Destroy(col.gameObject);
         }
     }
-
-
 }

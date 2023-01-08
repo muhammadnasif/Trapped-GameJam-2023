@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class FoxyInteractable : MonoBehaviour
 {
@@ -19,6 +20,12 @@ public class FoxyInteractable : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown("f") && curItem != null) {
+            
+            if(curItem.name == "Door" && GlobalScript.hasKey) {
+                SceneManager.LoadScene("Level 5");
+                return;
+            }
+            
             print("Consume or Hold?");
             if(InteractableText != null){
                 InteractableText.enabled = true;
