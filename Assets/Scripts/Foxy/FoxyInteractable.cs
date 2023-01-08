@@ -22,6 +22,7 @@ public class FoxyInteractable : MonoBehaviour
         if(curItem != null) {
             
             if(curItem.name == "Door" && GlobalScript.hasKey) {
+                createFile("You need the moon", "Its not the end.txt");
                 SceneManager.LoadScene("Level 5");
                 return;
             }
@@ -42,6 +43,10 @@ public class FoxyInteractable : MonoBehaviour
         //         }
         //     }
         // }
+    }
+
+    async void createFile(string message, string path) {
+        await File.WriteAllTextAsync(path, message);
     }
 
     void OnTriggerExit2D(Collider2D col) {
