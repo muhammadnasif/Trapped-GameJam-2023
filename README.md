@@ -3,6 +3,10 @@
 Trapped is a 2D action platformer game made with [Unity](https://unity.com/). In this game, you play as a fox stuck in a mystical forest with an entity who will guide you to your freedom. But there is a twist, and you have to find it yourself.
 Trapped was made with love for IEEE, CS, BUET on the theme "It's Not Supposed To Do That".
 
+## To play the game
+1. Download [this folder](https://drive.google.com/drive/folders/1PVd9RP5h8G5xoSPTFtv3UCPFjDfVo95C?usp=sharing)
+2. Open **Trapped.exe**
+
 ## How to Run In Unity Engine
 1. Download Unity Hub and Unity Engine.
 2. Create a 2D core Unity Project.
