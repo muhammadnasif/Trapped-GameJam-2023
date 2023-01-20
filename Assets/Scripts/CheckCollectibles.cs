@@ -37,6 +37,14 @@ public class CheckCollectibles : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col) {
         if(col.gameObject.name == "Foxy with claw") {
+
+            if(SceneManager.GetActiveScene().name == "Level 3_a") {
+                if(!GlobalScript.hasKey) {
+                    SceneManager.LoadScene("Level 4");    
+                }
+                return;
+            }
+
             if(collectibleScript.getSkullCount() == skullsCount) {
                 createFile(antigameMessages[GlobalScript.messageIndex], fileNames[GlobalScript.messageIndex]);
                 GlobalScript.messageIndex++;
